@@ -28,14 +28,11 @@ contract GoldSilverStablecoinTest is Test {
         user = address(0x123);
 
         // Deploy the stablecoin contract
-        stablecoin = new GoldSilverStablecoin(
-            address(goldPriceFeed),
-            address(silverPriceFeed)
-        );
+        stablecoin = new GoldSilverStablecoin(address(goldPriceFeed), address(silverPriceFeed));
     }
 
     // Test if the contract deploys successfully
-    function testDeployment() public view{
+    function testDeployment() public view {
         assertTrue(address(stablecoin) != address(0), "Stablecoin contract not deployed!");
     }
 
@@ -43,5 +40,4 @@ contract GoldSilverStablecoinTest is Test {
     function testOwner() public view {
         assertEq(owner, address(this), "Owner should be the deployer!");
     }
-
 }

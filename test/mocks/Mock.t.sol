@@ -27,10 +27,7 @@ contract GoldSilverStablecoinMockTest is Test {
 
         owner = address(this);
 
-        stablecoin = new GoldSilverStablecoin(
-            address(goldPriceFeed),
-            address(silverPriceFeed)
-        );
+        stablecoin = new GoldSilverStablecoin(address(goldPriceFeed), address(silverPriceFeed));
     }
 
     function testInvalidGoldPrice() public {
@@ -67,8 +64,8 @@ contract GoldSilverStablecoinMockTest is Test {
         uint256 goldAmount = 10;
         uint256 silverAmount = 10;
 
-        uint256 expectedValue = (goldAmount * uint256(newGoldPrice) * 80) / 100 +
-                                (silverAmount * uint256(newSilverPrice) * 20) / 100;
+        uint256 expectedValue =
+            (goldAmount * uint256(newGoldPrice) * 80) / 100 + (silverAmount * uint256(newSilverPrice) * 20) / 100;
 
         uint256 calculatedValue = stablecoin.calculateStablecoinValue(goldAmount, silverAmount);
         assertEq(calculatedValue, expectedValue, "Price feed update mismatch!");

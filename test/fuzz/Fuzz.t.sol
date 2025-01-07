@@ -21,10 +21,7 @@ contract GoldSilverStablecoinFuzzTest is Test {
         silverPriceFeed = new MockV3Aggregator(DECIMALS, SILVER_PRICE);
         owner = address(this);
 
-        stablecoin = new GoldSilverStablecoin(
-            address(goldPriceFeed),
-            address(silverPriceFeed)
-        );
+        stablecoin = new GoldSilverStablecoin(address(goldPriceFeed), address(silverPriceFeed));
     }
 
     function testFuzzMint(uint256 goldAmount, uint256 silverAmount) public {
