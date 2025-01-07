@@ -1,10 +1,22 @@
 
 ---
 
-# GoldSilverStablecoin  
+# GoldSilverStablecoin 
 
 **GoldSilverStablecoin** is a Solidity-based stablecoin smart contract backed by a weighted ratio of gold (80%) and silver (20%). The contract uses Chainlink price feeds for real-time gold and silver price data to determine the stablecoin value. This project provides a robust solution for creating a tangible asset-backed cryptocurrency.  
 
+---
+# Disclaimer
+
+   **Use at Your Own Risk:**
+This smart contract and its associated code are provided as-is, without any warranties or guarantees of any kind. The project is intended for educational and experimental purposes only. The author (Vedang Prasad Limaye) does not assume responsibility for any financial loss, technical issues, or damages incurred as a result of using this project.
+
+Before using the smart contract in production, users should:
+
+Perform their own due diligence and testing.
+Seek professional advice for any legal, financial, or technical implications.
+Ensure they understand the risks involved in deploying and using blockchain-based solutions.
+By interacting with this project, you acknowledge and agree that any loss or issue arising from its use is solely your responsibility.
 ---
 
 ## Features  
