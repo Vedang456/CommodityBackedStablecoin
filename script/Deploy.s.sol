@@ -28,10 +28,7 @@ contract Deploy is Script {
         vm.startBroadcast(deployerPrivateKey);
 
         // Deploy the GoldSilverStablecoin contract
-        GoldSilverStablecoin stablecoin = new GoldSilverStablecoin(
-            goldPriceFeed,
-            silverPriceFeed
-        );
+        GoldSilverStablecoin stablecoin = new GoldSilverStablecoin(goldPriceFeed, silverPriceFeed);
 
         // Stop broadcasting
         vm.stopBroadcast();
@@ -40,6 +37,3 @@ contract Deploy is Script {
         console.log("GoldSilverStablecoin deployed at:", address(stablecoin));
     }
 }
-
-
-

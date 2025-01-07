@@ -10,7 +10,6 @@ error NotAuthorized();
 error InvalidPrice();
 error InsufficientBalance();
 
-
 contract GoldSilverStablecoin is ERC20, Ownable {
     AggregatorV3Interface public immutable goldPriceFeed;
     AggregatorV3Interface public immutable silverPriceFeed;
@@ -59,17 +58,12 @@ contract GoldSilverStablecoin is ERC20, Ownable {
      * @param silverAmount Amount of silver.
      * @return The calculated stablecoin value.
      */
-    function calculateStablecoinValue(uint256 goldAmount, uint256 silverAmount)
-        public
-        view
-        returns (uint256)
-    {
+    function calculateStablecoinValue(uint256 goldAmount, uint256 silverAmount) public view returns (uint256) {
         uint256 goldPrice = _getLatestPrice(goldPriceFeed);
         uint256 silverPrice = _getLatestPrice(silverPriceFeed);
 
         // Calculate total value based on the 80:20 gold-to-silver ratio
-        uint256 totalValue = (goldAmount * goldPrice * 80) / 100 +
-                             (silverAmount * silverPrice * 20) / 100;
+        uint256 totalValue = (goldAmount * goldPrice * 80) / 100 + (silverAmount * silverPrice * 20) / 100;
         return totalValue;
     }
 
@@ -80,7 +74,7 @@ contract GoldSilverStablecoin is ERC20, Ownable {
      * @return The latest price as a uint256.
      */
     function _getLatestPrice(AggregatorV3Interface priceFeed) internal view returns (uint256) {
-        (, int256 price, , , ) = priceFeed.latestRoundData();
+        (, int256 price,,,) = priceFeed.latestRoundData();
         if (price <= 0) revert InvalidPrice();
         return uint256(price);
     }
@@ -92,14 +86,9 @@ contract GoldSilverStablecoin is ERC20, Ownable {
      * @param silverAmount Amount of silver.
      * @return The calculated stablecoin value.
      */
-    function _calculateStablecoinValue(uint256 goldAmount, uint256 silverAmount)
-        internal
-        view
-        returns (uint256)
-    {
+    function _calculateStablecoinValue(uint256 goldAmount, uint256 silverAmount) internal view returns (uint256) {
         return calculateStablecoinValue(goldAmount, silverAmount);
     }
 }
 
-
-// 100 billion coins mint 
+// 100 billion coins mint
