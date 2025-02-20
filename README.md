@@ -33,7 +33,7 @@ By interacting with this project, you acknowledge and agree that any loss or iss
 
 ### Tools Required  
 - [Foundry](https://getfoundry.sh) (for development, testing, and deployment)  
-- Node.js (for additional package support, if needed)  
+- Node.js (for additional package support, if needed) 
 - Ethereum wallet (e.g., MetaMask or Anvil for local testing)  
 - RPC endpoint (e.g., Infura or Alchemy for mainnet/testnet access)  
 
@@ -45,9 +45,10 @@ export SILVER_PRICE_FEED=<Chainlink Silver/USD Price Feed Address>
 export PRIVATE_KEY=<Your Ethereum Private Key>  
 ```  
 
+
 - Replace `<Chainlink Gold/USD Price Feed Address>` and `<Chainlink Silver/USD Price Feed Address>` with actual Chainlink addresses for the desired network.  
 - Replace `<Your Ethereum Private Key>` with your private key for deployment or interaction.  
-
+- Or Create a  .env file for this() Also add you RPC endpoint in this.
 ---
 
 ## Library Imports  
